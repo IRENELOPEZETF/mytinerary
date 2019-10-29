@@ -7,33 +7,41 @@ import ny from "../img/ny.jpg";
 import par from "../img/par.jpeg";
 import "../App.css";
 import "../index.css";
-import '../../../server/node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../../../server/node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from "react-router-dom";
 
 
 class Home extends Component {
     render() {
         return (
-            <div className='myhome'>
-                
-                <img src = { tineraryLog } alt = "MyTineraryLogo" className = "logo" height = "160px"/>
-                
+            <div className='myHome'>
+
+                <div class='myLogo'>
+                <img src = { tineraryLog } alt = "MyTineraryLogo" className = "logo" height = "140px"/>
+                </div>
+
+                <div className='myTrip'>
                 <h5>Find your perfect trip, designed by insiders who know and love their cities.</h5> 
-    
+                </div>
+
                 <NavLink className = "arrow-menu" to = { "/cities" }><img src = { circledRight } alt = "circled-right" className = "circled-right" height = "80px"/></NavLink>
-    
+
+                {/* <div className='popCities'> */}
                 <h3>Popular MYtineraries</h3> 
-                
-                <div className='popCities'>
-                   
-                            <img src ={ bcn } alt = "Barcelona" className = "block-example border border-danger" height = "130px" roundedCircle/>
-                           
-                            <img src = { ny } alt = "New York" className = "block-example border border-danger" height = "130px" roundedCircle/>
-                            
-                            <img src = { ams } alt = "Amsterdam" className = "block-example border border-danger" height = "130px" roundedCircled />
-                           
-                            <img src = { par } alt = "Paris" className = "block-example border border-danger" height = "130px"/>
-                            
+                {/* </div> */}
+                <div className='cityImg'>
+                    <div className='leftImg'>
+                        <img src ={ bcn } alt = "Barcelona" className = "cityPhoto" height = "110px" roundedCircle/>
+                    </div>
+                    <div className = 'rightImg'>
+                        <img src = { ny } alt = "New York" className = "cityPhoto" height = "110px" roundedCircle/>
+                    </div>
+                    <div className = 'leftImg'>
+                        <img src = { ams } alt = "Amsterdam" className = "cityPhoto" height = "110px" roundedCircled/>
+                    </div>
+                    <div className = 'rightImg'>
+                        <img src = { par } alt = "Paris" className = "cityPhoto" height = "110px"/>
+                    </div>       
                 </div>  
             </div>
         );

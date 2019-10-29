@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import "../index.css";
-import '../../../server/node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 import userDoll from "../img/user.png" 
 import Users from "../components/Users.js";
 import Home from "../components/Home.js";

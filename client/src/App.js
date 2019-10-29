@@ -7,12 +7,7 @@ import Users from "./components/Users.js";
 import Cities from "./components/Cities.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
  
-// import { connect } from "react-redux";
-// browserrouter es para poder ir de página a página
-import '../../server/node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-// import home from './components/home';
-// import footer from './components/footer';
+// import { Connect } from "react-redux";
 
 function App() {
   
@@ -33,9 +28,6 @@ function App() {
     
   );
 }
-  
-
-
-
+ 
 export default App;
 

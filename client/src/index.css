@@ -13,13 +13,13 @@ code {
 }
 
 .logo {
-  padding-top: 20px;
+  padding-top: 80px;
   align-content: left;
 }
 
 .circled-right {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0.1px;
+  margin-bottom: 0.1px;
 }
 
 .navbar {
@@ -35,34 +35,56 @@ code {
 .header {
   height: 50px;
   background-color: rgb(214, 38, 38);
-  position: top;
+  position: fixed;
+  top: 0px;
+  width: 100%
 }
+
+/* .myHome {
+  height: 350px;
+} */
 
 .cityImg {
-  
-  margin: 0.1rem;
-  background-color: rgb(214, 38, 38);
-  display: inline-block;
-}
-.block-example {
-  
-  margin: 0.1rem;
-  background-color: rgb(214, 38, 38);
-  display: inline-block;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
-.myFooter {
-  height: 60px;
+.leftImg {
+  /* margin: 1.3rem; */
+  border-block-color: rgb(214, 38, 38);
+  border: 3px;
+  float: left;
+}
+
+.rightImg {
+  /* margin: 1.3rem; */
+  border-block-color: rgb(214, 38, 38);
+  float: right;
+}
+
+.cityPhoto {
+  border-color: rgb(214, 38, 38);
+  border: 2px;
+  
+}
+
+.appFooter {
+  height: 50px;
   background-color:rgb(214, 38, 38);
-  position: bottom;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  /* margin-bottom: 0px;
+  padding-bottom: 0px; */
 }
 
 .popCities {
   padding-bottom: 8px;
+  border-block-color: red;
 }
 
 .homIcon {
   position: absolute position;
+  
+
 }

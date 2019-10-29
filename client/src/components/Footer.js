@@ -3,7 +3,7 @@ import houseicon from "../img/homeIcon.png";
 import "../App.css";
 import "../index.css";
 import { NavLink } from "react-router-dom";
-import '../../../server/node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../../../server/node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 class Footer extends Component {
