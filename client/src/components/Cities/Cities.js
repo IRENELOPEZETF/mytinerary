@@ -8,12 +8,12 @@ import { NavLink } from "react-router-dom";
 import { CityFilter } from "./Cityfilter.js";
 
 
-export class cities extends Component {
+export class Cities extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filteredCities: [],
-            cities: [],
+            // cities: [],
+            filteredCities: []
         };
     }
 
@@ -23,16 +23,17 @@ export class cities extends Component {
         //     this.props.getCities();
         //     return;
         // }
-        this.props.getCities();
+        this.props.getCities()
+        // this.setState({ filteredCities: this.props.cities.payload })
     }
     // componentWillReceiveProps(nextProps) {
     //     if (nextProps.cities !== this.props.cities) {
-    //         this.setState({ filteredCities: this.props.cities.payload
+    //         this.setState({ cities: this.props.cities
     //         })
     //     }
     // }
         filterCity = (cityFilter) => {
-            let filteredCities = this.state.cities;
+            let filteredCities = this.props.cities;
             filteredCities = filteredCities.filter(city => {
                 let cityName = city.name.toLowerCase() 
             // + city.country.toLowerCase()
@@ -42,57 +43,61 @@ export class cities extends Component {
             this.setState({
                 filteredCities
                 });
-            //  console.log(this.state.filteredCities);   
-            };
+            console.log("cities dels collons", filteredCities);
+            }
 
         render() {
+            // if (filteredCities) está vacía, muéstrame (return) (this.props.cities), sinó 
+            const { cities } = this.props
+            let filteredCities = this.state.filteredCities                
             
-            const { cities } = this.props;
-                            
-            // console.log(this.props.cities);
+            console.log("todas las cities", this.props.cities);
+            console.log("en el render", this.state.filteredCities);
+               
             // console.log(this.props.isloaded);
-            
             // if (cities.isLoaded) {
-            
             // return (
             //     <div><h1 className="isLoaded">LOADING...</h1></div>
             // )} else {
-            
-            
+            if (this.state.filteredCities.length === 0) {
+                   filteredCities = this.props.cities
+                 }
+                            
             return (
                 <div className="cityList">
-                <h1 className="h1cityList">Cities</h1>
-                
+                    <h1 className="h1cityList">Cities</h1>
                     <CityFilter onChange={this.filterCity}/>
-                    
-                <div className="ulCity">
-                    {cities.map(city => (
-                        <React.Fragment key={cities._id}>
-                        
-                            <NavLink className = "cityLink" to = { "/itineraries" }><button className="liCity">
-                            {city.name}</button></NavLink>
-                          
-                        </React.Fragment>
-                    ))}
-                    
+                    <div className="ulCity">
+                        {filteredCities.map(city => (
+                            <React.Fragment key={city._id}> 
+                                <NavLink className = "cityLink" to = { "/itineraries/"+city._id }>
+                                    <button className="liCity">
+                                        {city.name}
+                                    </button>
+                                </NavLink>
+                            </React.Fragment>   
+                        ))}
+                    </div>
                 </div>
-                </div>
-
             );}
-                    }
+            
+}
 
 
 const mapStateToProps = (state) => {
     // console.log(state);
     return {
-        Cities: state.cities.Cities,
-        isLoaded: state.cities.isLoaded,
-        // filteredCities: state.cities.cities,
+        // filteredCities: this.state.filteredCities,
+        cities: state.cities.cities,
+        isloaded: state.cities.isloaded,
+        filteredCities: state.cities.cities,
+    
     }
+
 };
 
-export default connect(mapStateToProps, {getCities}) (
-    cities
+export default connect(mapStateToProps, {getCities})(
+    Cities,
 );
 
 

@@ -14,10 +14,11 @@ export class Itineraries extends Component {
     }
     
     componentDidMount() {
-        this.props.getItineraries ()
+        this.props.getItineraries(this.props.match.params.cityId)
         }
 
         render() {
+            console.log(this.props.match.params.cityId);
             // console.log(this.props.cities);
             // console.log(this.props.isloaded);
             const { itineraries } = this.props;
@@ -31,14 +32,14 @@ export class Itineraries extends Component {
             return (
                 <div className="itineraryList">
                 <h1 className="h1cityList">Itineraries</h1>             
-                    <ul className="ulCity">
+                    <div className="ulCity">
                     {itineraries.map(itinerary => (
                         <React.Fragment key={itinerary._id}>
                         <li className="liCity">{itinerary.title}, {itinerary.duration} h</li>
                         </React.Fragment>
                     ))}
                     
-                    </ul>
+                    </div>
                 </div>
             );}
             // console.log(this.props.isloaded);

@@ -18,7 +18,7 @@ itineraryRouter.get('/all',
                 res.send(files)
             })
             .catch(err => console.log(err));
-    });
+});
 
 itineraryRouter.post('/add', (req, res) => {
     
@@ -42,5 +42,18 @@ itineraryRouter.post('/add', (req, res) => {
         .then(() => res.json('Itinerary added!'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
+
+itineraryRouter.get('/:cityId',
+    (req, res) => {
+        console.log("holaaa");
+        let cityRequested = req.params.cityId;
+        itineraryModel.find({
+                cityId: cityRequested
+            })
+            .then(itineraries => {
+                res.send(itineraries)
+            })
+            .catch(err => console.log(err));
+    });
 
 module.exports = itineraryRouter;

@@ -21,7 +21,7 @@ function App() {
             <Route exact path = "/" component = { Home }/>
             <Route path = "/Users" component = { Users }/>
             <Route path = "/Cities" component = { Cities }/>
-            <Route path = "/Itineraries" component = { Itineraries }/>
+            <Route path = "/Itineraries/:cityId" component = { Itineraries }/>
           </Switch>
             < Footer/>
         </div>
