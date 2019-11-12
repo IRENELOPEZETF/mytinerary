@@ -16,7 +16,7 @@ class Home extends Component {
         return (
             <div className='myHome'>
 
-                <div class='myLogo'>
+                <div className='myLogo'>
                 <img src = { tineraryLog } alt = "MyTineraryLogo" className = "logo" height = "140px"/>
                 </div>
 
@@ -31,13 +31,13 @@ class Home extends Component {
                 {/* </div> */}
                 <div className='cityImg'>
                     <div className='leftImg'>
-                        <img src ={ bcn } alt = "Barcelona" className = "cityPhoto" height = "110px" roundedCircle/>
+                        <img src ={ bcn } alt = "Barcelona" className = "cityPhoto" height = "110px" />
                     </div>
                     <div className = 'rightImg'>
-                        <img src = { ny } alt = "New York" className = "cityPhoto" height = "110px" roundedCircle/>
+                        <img src = { ny } alt = "New York" className = "cityPhoto" height = "110px" />
                     </div>
                     <div className = 'leftImg'>
-                        <img src = { ams } alt = "Amsterdam" className = "cityPhoto" height = "110px" roundedCircled/>
+                        <img src = { ams } alt = "Amsterdam" className = "cityPhoto" height = "110px" />
                     </div>
                     <div className = 'rightImg'>
                         <img src = { par } alt = "Paris" className = "cityPhoto" height = "110px"/>

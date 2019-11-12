@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-//const Schema = mongoose.Schema;
-
 const citySchema = new mongoose.Schema({
     name: {
         type: String,
@@ -11,6 +9,9 @@ const citySchema = new mongoose.Schema({
     country: {
         type: String,
         required: true,
+    },
+    picture: {
+        type: String,
     }
 });
 

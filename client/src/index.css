@@ -80,11 +80,39 @@ code {
 
 .popCities {
   padding-bottom: 8px;
-  border-block-color: red;
+  border-block-color: rgb(214, 38, 38);
 }
 
 .homIcon {
   position: absolute position;
   
 
+}
+
+.h1cityList {
+  padding-top: 40px;
+}
+
+.isLoaded {
+  padding-top: 40px;
+}
+
+.liCity {
+background-color:rgba(240, 238, 238, 0.986);
+/* background-size: 1000px; */
+border-color: rgb(214, 38, 38);
+border: 3px;
+border-radius: 4px;
+padding: 30px 30px;
+margin: 2px;
+font-size: 20px;
+font-weight: bold;
+display: block;
+width: 99%;
+}
+.ulCity {
+  flex-direction: column;
+}
+.cityLink {
+  text-decoration: none;
 }

@@ -5,7 +5,8 @@ import "../index.css";
 import userDoll from "../img/user.png" 
 import Users from "../components/Users.js";
 import Home from "../components/Home.js";
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import { NavLink } from "react-router-dom";
 // import { connect } from 'react-redux';
 
 
@@ -29,19 +30,19 @@ class Header extends Component {
     render() {
         return (
             <div className = "header">
-              <div class = "user-menu">
+              <div className= "user-menu">
                 <img src = { userDoll } alt = "doll" className = "user-doll" height = "45px"/>
               </div>
             
               <div classe = "burger-menu">
                 <Navbar color="faded" light>
-                <NavbarBrand href="/" className="mr-right"></NavbarBrand>
+                < NavLink to = {"/"} className = "mr-right" > </NavLink>
                 <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                 <Collapse isOpen={!this.state.collapsed} navbar>
                     <Nav navbar>
                     <NavItem>
-                        <NavLink href="/" component = { Home }>Home</NavLink>
-                        <NavLink href="/Users" component = { Users }>Users</NavLink>
+                        <NavLink to={"/"}>Home</NavLink>
+                        <NavLink to={"/Users"}>Users</NavLink>
                     </NavItem>
                     </Nav>
                 </Collapse>
