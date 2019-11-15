@@ -3,7 +3,7 @@ import "../App.css";
 import "../index.css"
 import { connect } from "react-redux";
 import { getItineraries } from "../store/actions/itineraryAction.js"; 
-
+import { NavLink } from "react-router-dom";
 
 export class Itineraries extends Component {
     constructor(props) {
@@ -15,35 +15,44 @@ export class Itineraries extends Component {
     
     componentDidMount() {
         this.props.getItineraries(this.props.match.params.cityId)
-        }
+    }
+  
+    render() {
+        console.log(this.props.match.params.cityId);
+        // console.log(this.props.cities);
+        // console.log(this.props.isloaded);
+        const { itineraries } = this.props;
 
-        render() {
-            console.log(this.props.match.params.cityId);
-            // console.log(this.props.cities);
-            // console.log(this.props.isloaded);
-            const { itineraries } = this.props;
-
-            if (itineraries.isloaded) {
-            
+        if (itineraries.isloaded) {
             return (
                 <div><h1 className="isLoaded">LOADING...</h1></div>
             )} else {
-            
-            return (
-                <div className="itineraryList">
-                <h1 className="h1cityList">Itineraries</h1>             
-                    <div className="ulCity">
+        
+            return (           
+                <div className="ulCity">
                     {itineraries.map(itinerary => (
+                        
                         <React.Fragment key={itinerary._id}>
-                        <li className="liCity">{itinerary.title}, {itinerary.duration} h</li>
+                        <div><h1 className="h1cityList">{itinerary.cityName}</h1>
+                        </div>
+                        <div className = "itinerarySlide">
+                            <NavLink className = "cityLink" to = { "/activities/"+itinerary._id }>                                   
+                                <img className = "profilePicture" src = {itinerary.profilepicture} alt = "profilepicture" height = "30px"/> 
+                                <div className = "itineraryTittle">{itinerary.title}</div>
+                                <div className = "itineraryInfo">
+                                    <div className = "itineraryRating">{itinerary.rating}</div>
+                                    <div className = "itineraryDuration">{itinerary.duration}</div>
+                                    <div className = "itineraryPrice">{itinerary.price}</div>
+                                </div>   
+                            </NavLink>
+                        </div>
                         </React.Fragment>
-                    ))}
-                    
-                    </div>
+                    ))}  
                 </div>
+                
             );}
-            // console.log(this.props.isloaded);
-        }
+        // console.log(this.props.isloaded);
+    }
 }
 
 const mapStateToProps = (state) => {

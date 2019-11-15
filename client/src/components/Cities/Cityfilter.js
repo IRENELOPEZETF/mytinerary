@@ -14,7 +14,7 @@ export class CityFilter extends Component {
   
     handleChange = (event) => {
         this.setState({ cityFilter: event.target.value });
-        console.log(this.props)
+        // console.log(this.props)
         this.props.onChange(event.target.value);
         // console.log(this.props);
     };

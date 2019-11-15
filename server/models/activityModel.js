@@ -1,24 +1,20 @@
 const mongoose = require("mongoose");
 
-const itinerarySchema = new mongoose.Schema({
-    cityId: { 
+const activitySchema = new mongoose.Schema({
+    itineraryId: {
         type: String,
         required: true,
     },
-    cityName: {
+    name: {
         type: String,
         required: true,
     },
-    title: {
+    place: {
         type: String,
         required: true,
     },
-    profilepicture: {
+    picture: {
         type: String,
-        required: true,
-    },
-    rating: {
-        type: Number,
         required: true,
     },
     duration: {
@@ -29,10 +25,10 @@ const itinerarySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    hashtags: {
+    description: {
         type: Array,
         required: true,
     }
 });
 
-module.exports = mongoose.model('itinerary', itinerarySchema);
+module.exports = mongoose.model('activity', activitySchema);

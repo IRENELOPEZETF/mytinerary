@@ -31,17 +31,21 @@ class Home extends Component {
                 {/* </div> */}
                 <div className='cityImg'>
                     <div className='leftImg'>
-                        <img src ={ bcn } alt = "Barcelona" className = "cityPhoto" height = "110px" />
+                        <div className='cityPhoto'>
+                            <img src ={ bcn } alt = "Barcelona" className = "cityPhoto" height = "110px" />
+                        </div>
+                        <div className = 'cityPhoto'>
+                            <img src = { ny } alt = "New York" className = "cityPhoto" height = "110px" />
+                        </div>
                     </div>
                     <div className = 'rightImg'>
-                        <img src = { ny } alt = "New York" className = "cityPhoto" height = "110px" />
-                    </div>
-                    <div className = 'leftImg'>
-                        <img src = { ams } alt = "Amsterdam" className = "cityPhoto" height = "110px" />
-                    </div>
-                    <div className = 'rightImg'>
-                        <img src = { par } alt = "Paris" className = "cityPhoto" height = "110px"/>
-                    </div>       
+                        <div className='cityPhoto'>
+                            <img src = { ams } alt = "Amsterdam" className = "cityPhoto" height = "110px" />
+                        </div>
+                        <div className = 'cityPhoto'>
+                            <img src = { par } alt = "Paris" className = "cityPhoto" height = "110px"/>
+                        </div>   
+                    </div>    
                 </div>  
             </div>
         );

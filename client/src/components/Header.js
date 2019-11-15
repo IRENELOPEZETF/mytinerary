@@ -3,9 +3,9 @@ import "../App.css";
 import "../index.css";
 
 import userDoll from "../img/user.png" 
-import Users from "../components/Users.js";
-import Home from "../components/Home.js";
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
+// import Users from "../components/Users.js";
+// import Home from "../components/Home.js";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import { NavLink } from "react-router-dom";
 // import { connect } from 'react-redux';
 
