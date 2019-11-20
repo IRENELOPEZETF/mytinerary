@@ -118,3 +118,8 @@ img.userPicture {
 .MuiCardMedia-rootmakeStyles-media-2 {
   height: 200px;
 }
+
+.cityPicture {
+  margin-top: 50px;
+  width: 100%;
+}

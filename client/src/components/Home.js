@@ -32,18 +32,19 @@ class Home extends Component {
                 <div className='cityImg'>
                     <div className='leftImg'>
                         <div className='cityPhoto'>
-                            <img src ={ bcn } alt = "Barcelona" className = "cityPhoto" height = "110px" />
+                            <NavLink className = "cityPhoto1" to = { "/itineraries/5db0aac61c9d44000055b37e" }><img src ={ bcn } alt = "Barcelona" className = "cityPhoto" height = "110px" /></NavLink>
                         </div>
                         <div className = 'cityPhoto'>
-                            <img src = { ny } alt = "New York" className = "cityPhoto" height = "110px" />
+                            <NavLink className = "cityPhoto2" to = { "/itineraries/5db0ab351c9d44000055b382" }><img src = { ny } alt = "New York" className = "cityPhoto" height = "110px" /></NavLink>
                         </div>
                     </div>
                     <div className = 'rightImg'>
                         <div className='cityPhoto'>
-                            <img src = { ams } alt = "Amsterdam" className = "cityPhoto" height = "110px" />
+                            <NavLink className = "cityPhoto3" to = { "/itineraries/5db0ab071c9d44000055b380" }>
+                            <img src = { ams } alt = "Amsterdam" className = "cityPhoto" height = "110px" /></NavLink>
                         </div>
                         <div className = 'cityPhoto'>
-                            <img src = { par } alt = "Paris" className = "cityPhoto" height = "110px"/>
+                            <NavLink className = "cityPhoto4" to = { "/itineraries/5db0ab691c9d44000055b384" }><img src = { par } alt = "Paris" className = "cityPhoto" height = "110px"/></NavLink>
                         </div>   
                     </div>    
                 </div>  
