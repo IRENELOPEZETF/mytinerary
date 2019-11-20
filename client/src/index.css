@@ -109,3 +109,12 @@ width: 99%;
 .cityLink {
   text-decoration: none;
 }
+
+img.userPicture {
+  border-radius: 50%;
+  height: 50px;
+}
+
+.MuiCardMedia-rootmakeStyles-media-2 {
+  height: 200px;
+}

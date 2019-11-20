@@ -44,4 +44,12 @@ cityRouter.get('/:name',
             console.log("esto debería ser barna");
 });
 
+cityRouter.get('/find/:id', (req, res) => {
+        cityModel.findById(req.params.id)
+            .then(city => {
+                res.send(city)
+            })
+            .catch(err => console.log(err));
+});
+
 module.exports = cityRouter;
