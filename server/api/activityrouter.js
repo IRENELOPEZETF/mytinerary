@@ -53,4 +53,12 @@ activityRouter.get('/:itineraryId',
             .catch(err => console.log(err));
     });
 
+    activityRouter.get('/find/:itineraryId', (req, res) => {
+        activityModel.findById(req.params.id)
+            .then(activity => {
+                res.send(activity)
+            })
+            .catch(err => console.log(err));
+    });
+
 module.exports = activityRouter;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import Itineraries from './Itineraries.js';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -43,18 +43,24 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function Toggle (props) {
-  
+  console.log(props);
         const classes = useStyles();
         const [expanded, setExpanded] = React.useState(false);
-        const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
+        const handleExpandClick = (id) => {
+          if (props.selectedItinerary === id) {
+            props.selectId("");
+          } else {
+            props.selectId(id);
+          }
+         
+        };
+
     return (
         
         <Card className={classes.card}>
         <CardHeader className="cardHeader"
         avatar={
-          <img className="profilePicture" src ={props.itinerary.profilepicture} alt="User Picture" className="userPicture"/>               
+          <img className="userPicture" src ={props.itinerary.profilepicture} alt="User"/>               
         }
         title={props.itinerary.title}
         subheader={props.itinerary.cityName}
@@ -74,16 +80,18 @@ export default function Toggle (props) {
         </IconButton>
         <IconButton
           className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
+            [classes.expandOpen]: props.itinerary._id === props.selectedItinerary,
           })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
+          onClick = {
+            () => handleExpandClick(props.itinerary._id)
+          }
+          aria-expanded={props.itinerary._id === props.selectedItinerary}
           aria-label="show more"
         >
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={props.itinerary._id === props.selectedItinerary} timeout="auto" unmountOnExit>
         <CardContent>
           <p>Aquí van los sliders de las activities</p>
           

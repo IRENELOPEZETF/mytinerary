@@ -32,7 +32,7 @@ export class Cities extends Component {
         this.setState({
             filteredCities
             });
-        console.log(filteredCities);
+        // console.log(filteredCities);
     }
 
     render() {
@@ -40,8 +40,8 @@ export class Cities extends Component {
         // const { cities } = this.props
         let filteredCities = this.state.filteredCities                
         
-        console.log("todas las cities", this.props.cities);
-        console.log("en el render", this.state.filteredCities);
+        // console.log("todas las cities", this.props.cities);
+        // console.log("en el render", this.state.filteredCities);
             
         // console.log(this.props.isloaded);
         // if (cities.isLoaded) {

@@ -3,17 +3,16 @@ import "../App.css";
 import "../index.css"
 import { connect } from "react-redux";
 import { getItineraries } from "../store/actions/itineraryAction.js"; 
-// import { NavLink } from "react-router-dom";
-// import { Button } from "@material-ui/core";
-// import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 import  Toggle  from "./Toggle.js";
+
 
 export class Itineraries extends Component {
     constructor(props) {
         super(props);
         this.state = {
             itineraries: [],
-            city: {}
+            city: {},
+            selectedItinerary: ""
         };
     }
     
@@ -28,6 +27,14 @@ export class Itineraries extends Component {
                 })
             });
             // console.log(this.setState.city.name);
+    }
+
+    selectId=(itineraryId) =>{
+                     
+         this.setState({
+             selectedItinerary: itineraryId
+         })
+            
     }
   
     render() {
@@ -44,7 +51,7 @@ export class Itineraries extends Component {
                 <div className="ulCity">
                      <div><img className ="cityPicture" src={this.state.city.picture} alt = {this.state.city.name} height = "300px"/>
                      </div>
-                     <div><p class="reSorry">We're sorry, there are not itineraries for this city yet</p></div>
+                     <div><p className="reSorry">We're sorry, there are not itineraries for this city yet</p></div>
                 </div>
             )} else {
         
@@ -57,35 +64,13 @@ export class Itineraries extends Component {
                     {itineraries.map(itinerary => (
                     
                         <React.Fragment key={itinerary._id}>
-                        <Toggle itinerary = {itinerary}/>
-                       
-                        {/* <div className = "itineraryCard">
-                            <Card>   
-                                <CardBody>                              
-                                    <CardTitle>
-                                        <div><img className = "profilePicture" src = {itinerary.profilepicture} alt = "profilepicture" height = "30px"/></div>
-                                        <div className = "itineraryTittle">{itinerary.title}</div>   
-                                    </CardTitle> 
-                                    <CardSubtitle>Rating: {itinerary.rating}   {itinerary.duration} hours   {itinerary.price}</CardSubtitle>
-                                    <CardText>{itinerary.hashtags}</CardText>
-                                    <Button>View all</Button>
-                                {/* <div className = "itineraryInfo">
-                                    <div className = "itineraryRating">{itinerary.rating}</div>
-                                    <div className = "itineraryDuration">{itinerary.duration}</div>
-                                    <div className = "itineraryPrice">{itinerary.price}</div>
-                                </div>   */}
-                            {/* <NavLink className = "cityLink" to = { "/activities/"+itinerary._id }> 
-                            </NavLink>
-                            </CardBody> 
-                            </Card> 
-                        </div> */}
+                        <Toggle itinerary = {itinerary} selectedItinerary = {this.state.selectedItinerary} selectId = {this.selectId}/>
                         </React.Fragment>
-                        
                     ))}  
                 </div>
                 
             );}
-        // console.log(this.props.isloaded);
+        
     }
 }
 
