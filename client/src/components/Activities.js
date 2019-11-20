@@ -3,7 +3,7 @@ import "../App.css";
 import "../index.css"
 import { connect } from "react-redux";
 import { getActivities } from "../store/actions/activityAction.js"; 
-
+// import Carousel from "./Carousel.js";
 
 
 export class Activities extends Component {

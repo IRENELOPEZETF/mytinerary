@@ -6,25 +6,25 @@ export default class Test extends React.Component {
 
   componentWillMount() {
     this.setState({
-      children: [],
+      activities: [],
       activeItemIndex: 0,
     });
 
     setTimeout(() => {
       this.setState({
-        children: createChildren(20),
+        // activities: createActivities(20),
       })
     }, 100);
   }
 
-  createChildren = n => range(n).map(i => <div key={i} style={{ height: 200, background: '#333' }}>{i}</div>);
+//   createActivities = n => range(n).map(i => <div key={this.props.activities} style={{ height: 200, background: '#333' }}>{i}</div>);
 
   changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex });
 
   render() {
     const {
       activeItemIndex,
-      children,
+      activities,
     } = this.state;
 
     return (
@@ -52,7 +52,7 @@ export default class Test extends React.Component {
         leftChevron={'<'}
         outsideChevron={false}
       >
-        {children}
+        {activities}
       </ItemsCarousel>
     );  
   }

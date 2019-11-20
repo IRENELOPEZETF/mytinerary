@@ -104,6 +104,8 @@ width: 99%;
 
 .ulCity {
   flex-direction: column;
+  height: 98vh;
+  overflow: scroll;
 }
 
 .cityLink {
@@ -117,6 +119,7 @@ img.userPicture {
 
 .MuiCardMedia-rootmakeStyles-media-2 {
   height: 200px;
+  margin-bottom: 100px;
 }
 
 .cityPicture {

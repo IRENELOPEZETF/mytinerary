@@ -49,7 +49,7 @@ export class Itineraries extends Component {
          if (itineraries.length === 0) {
             return (
                 <div className="ulCity">
-                     <div><img className ="cityPicture" src={this.state.city.picture} alt = {this.state.city.name} height = "300px"/>
+                     <div><img className ="cityPicture" src={this.state.city.picture} alt = {this.state.city.name} height = "240px"/>
                      </div>
                      <div><p className="reSorry">We're sorry, there are not itineraries for this city yet</p></div>
                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import Itineraries from './Itineraries.js';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -17,6 +17,8 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ratingIcon from '../img/ratingicon.png';
+import { getActivities } from '../store/actions/activityAction';
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -45,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 export default function Toggle (props) {
   console.log(props);
         const classes = useStyles();
-        const [expanded, setExpanded] = React.useState(false);
+        
         const handleExpandClick = (id) => {
           if (props.selectedItinerary === id) {
             props.selectId("");
@@ -54,7 +56,10 @@ export default function Toggle (props) {
           }
          
         };
-
+    useEffect(() => {
+     
+      console.log(props)
+    }, [])
     return (
         
         <Card className={classes.card}>
