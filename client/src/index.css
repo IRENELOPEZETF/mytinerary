@@ -123,3 +123,20 @@ img.userPicture {
   margin-top: 50px;
   width: 100%;
 }
+
+.cardContent {
+  height: 5px;
+  margin-top: 2px;
+}
+
+.cardHeader {
+  height: 30px;
+}
+
+.cardActions {
+  height: 15px;
+}
+
+.reSorry {
+  text-align: center;
+}

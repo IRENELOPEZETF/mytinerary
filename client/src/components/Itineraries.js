@@ -36,9 +36,16 @@ export class Itineraries extends Component {
         // console.log(this.props.isloaded);
         const { itineraries } = this.props;
 
-        if (itineraries.isloaded) {
+        // if (itineraries.isloaded) {
+        //     return (
+        //         <div><h1 className="isLoaded">LOADING...</h1></div>
+         if (itineraries.length === 0) {
             return (
-                <div><h1 className="isLoaded">LOADING...</h1></div>
+                <div className="ulCity">
+                     <div><img className ="cityPicture" src={this.state.city.picture} alt = {this.state.city.name} height = "300px"/>
+                     </div>
+                     <div><p class="reSorry">We're sorry, there are not itineraries for this city yet</p></div>
+                </div>
             )} else {
         
             return (           

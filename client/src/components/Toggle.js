@@ -16,14 +16,15 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ratingIcon from '../img/ratingicon.png';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: 500,
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '10.25%', // 16:9
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -51,21 +52,20 @@ export default function Toggle (props) {
     return (
         
         <Card className={classes.card}>
-        <CardHeader
+        <CardHeader className="cardHeader"
         avatar={
-          <img className="profilePicture" src ={props.itinerary.profilepicture} alt="User Picture" className="userPicture"/>
-                        
+          <img className="profilePicture" src ={props.itinerary.profilepicture} alt="User Picture" className="userPicture"/>               
         }
         title={props.itinerary.title}
         subheader={props.itinerary.cityName}
-      />
+        />
       
-      <CardContent>
+      <CardContent className="cardContent">
         <Typography variant="body2" color="textSecondary" component="p">
-          Rating: {props.itinerary.rating}, {props.itinerary.duration} hours, {props.itinerary.price}
+          <img src={ ratingIcon } alt="ratingIcon" className="ratingIcon" height="20px"/> {props.itinerary.rating} / {props.itinerary.duration} hours / {props.itinerary.price}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing className="cardActions">
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
