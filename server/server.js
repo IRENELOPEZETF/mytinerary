@@ -22,6 +22,5 @@ app.use('/cities', cityRouter);
 app.use('/itineraries', itineraryRouter);
 app.use('/activities', activityRouter);
 
-// const port = process.env.PORT || 5000;
 app.listen(port, () => console.log('Server runing on ' + port + ' port'));
 

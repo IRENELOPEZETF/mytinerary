@@ -1,5 +1,5 @@
 export const getItineraries = (cityId) => dispatch => {
-    fetch('/itineraries/'+cityId)
+    fetch('/itineraries/'+ cityId)
         .then(response => response.json())
         .then(itineraries => dispatch({
             type: "GET_ITINERARIES",

@@ -4,6 +4,7 @@ import "../index.css"
 import { connect } from "react-redux";
 import { getItineraries } from "../store/actions/itineraryAction.js"; 
 import  Toggle  from "./Toggle.js";
+// import { getActivities } from "../store/actions/activityAction.js";
 
 
 export class Itineraries extends Component {
@@ -12,13 +13,15 @@ export class Itineraries extends Component {
         this.state = {
             itineraries: [],
             city: {},
-            selectedItinerary: ""
+            selectedItinerary: "",
+            activities: [],
         };
     }
     
     componentDidMount() {
         this.props.getItineraries(this.props.match.params.cityId);
         // this.props.getActivities(this.props.match.params.cityId);
+        
         fetch('/cities/find/' + this.props.match.params.cityId)
             .then(res => res.json())
             .then(data => {
@@ -26,7 +29,14 @@ export class Itineraries extends Component {
                     city: data
                 })
             });
-            // console.log(this.setState.city.name);
+        
+        fetch('/activities/find/' + this.props.match.params.cityId)
+           .then(res => res.json())
+           .then(data => {
+                this.setState({
+                    activities: data
+                })
+            });
     }
 
     selectId=(itineraryId) =>{
@@ -38,9 +48,7 @@ export class Itineraries extends Component {
     }
   
     render() {
-        // console.log(this.props.match.params.cityId);
-        // console.log(this.props.cities);
-        // console.log(this.props.isloaded);
+        
         const { itineraries } = this.props;
 
         // if (itineraries.isloaded) {
@@ -64,13 +72,11 @@ export class Itineraries extends Component {
                     {itineraries.map(itinerary => (
                     
                         <React.Fragment key={itinerary._id}>
-                        <Toggle itinerary = {itinerary} selectedItinerary = {this.state.selectedItinerary} selectId = {this.selectId}/>
+                        <Toggle itinerary = {itinerary} selectedItinerary = {this.state.selectedItinerary} selectId = {this.selectId} activities = {this.state.activities}/>   
                         </React.Fragment>
                     ))}  
-                </div>
-                
-            );}
-        
+                </div>          
+            );}       
     }
 }
 
@@ -79,6 +85,7 @@ const mapStateToProps = (state) => {
     return {
         itineraries: state.itineraries.itineraries,
         isloaded: state.itineraries.isloaded,
+        activities: state.activities.activities,
     }
 };
 export default connect(mapStateToProps, {getItineraries}) (

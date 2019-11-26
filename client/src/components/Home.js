@@ -7,7 +7,6 @@ import ny from "../img/ny.jpg";
 import par from "../img/par.jpeg";
 import "../App.css";
 import "../index.css";
-// import '../../../server/node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from "react-router-dom";
 
 

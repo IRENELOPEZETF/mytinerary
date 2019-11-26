@@ -25,7 +25,7 @@ function App() {
             <Route path = "/Itineraries/:cityId" component = { Itineraries }/>
             <Route path = "/Activities/:itineraryId" component = { Activities }/>
           </Switch>
-            < Footer/>
+            <Footer/>
         </div>
         
       </BrowserRouter>

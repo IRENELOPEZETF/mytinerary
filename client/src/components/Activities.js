@@ -3,8 +3,6 @@ import "../App.css";
 import "../index.css"
 import { connect } from "react-redux";
 import { getActivities } from "../store/actions/activityAction.js"; 
-// import Carousel from "./Carousel.js";
-
 
 export class Activities extends Component {
     constructor(props) {
@@ -13,13 +11,14 @@ export class Activities extends Component {
             activities: [],
         };
     }
-
+    
     componentDidMount() {
-        this.props.getActivities(this.props.match.params.itineraryId)
+        this.props.getActivities(this.props.match.params.cityId)
+        console.log(this.props.match.params.cityId)
     }
 
     render() {
-        console.log("itinId", this.props.match.params.itineraryId);
+        
         const { activities } = this.props;
 
         if (activities.isloaded) {
@@ -28,11 +27,22 @@ export class Activities extends Component {
             )
         } else {
             return (
+                
                 <div className="activitySlide">
                     {activities.map(activity => (
                         <React.Fragment key={activity._id}>
-                            <div className = "activityCard">{activity.name}</div>
-                            <img className = "activityPicture" src = {activity.picture} alt = "activityPicture" height = "80px" width = "80px"/>
+                            <div className="activityCard" activity = {activity._id}>
+                            
+                                <h2>{activity.name}</h2>
+                                <background><img className = "activityPicture" src = {activity.picture} alt = "activityPicture"/></background>
+                                <h4>{activity.place}</h4>
+                                <p>{activity.duration}</p>
+                                <p>{activity.price}</p>
+                                <p>{activity.description}</p>
+                                
+
+
+                            </div>
                         </React.Fragment>
                     ))}    
                 </div>

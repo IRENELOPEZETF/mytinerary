@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const activitySchema = new mongoose.Schema({
+    cityId: {
+        type: String,
+        required: true,
+    },
     itineraryId: {
         type: String,
         required: true,

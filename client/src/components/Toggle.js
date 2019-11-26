@@ -1,23 +1,19 @@
-import React, { useEffect } from 'react';
-// import Itineraries from './Itineraries.js';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-// import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-// import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ratingIcon from '../img/ratingicon.png';
-import { getActivities } from '../store/actions/activityAction';
+import { NavLink } from "react-router-dom";
 
 
 const useStyles = makeStyles(theme => ({
@@ -45,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function Toggle (props) {
-  console.log(props);
+
         const classes = useStyles();
         
         const handleExpandClick = (id) => {
@@ -56,16 +52,13 @@ export default function Toggle (props) {
           }
          
         };
-    useEffect(() => {
-     
-      console.log(props)
-    }, [])
+    
     return (
         
         <Card className={classes.card}>
         <CardHeader className="cardHeader"
         avatar={
-          <img className="userPicture" src ={props.itinerary.profilepicture} alt="User"/>               
+          <img className="userPicture" src ={props.itinerary.profilepicture} alt="User"/>          
         }
         title={props.itinerary.title}
         subheader={props.itinerary.cityName}
@@ -73,7 +66,7 @@ export default function Toggle (props) {
       
       <CardContent className="cardContent">
         <Typography variant="body2" color="textSecondary" component="p">
-          <img src={ ratingIcon } alt="ratingIcon" className="ratingIcon" height="20px"/> {props.itinerary.rating} / {props.itinerary.duration} hours / {props.itinerary.price}
+          <img src={ ratingIcon } alt="ratingIcon" className="ratingIcon" height="20px"/> {props.itinerary.rating} / {props.itinerary.duration} hours /{props.itinerary.price}
         </Typography>
       </CardContent>
       <CardActions disableSpacing className="cardActions">
@@ -91,18 +84,36 @@ export default function Toggle (props) {
             () => handleExpandClick(props.itinerary._id)
           }
           aria-expanded={props.itinerary._id === props.selectedItinerary}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
+          aria-label="show more">
+          <ExpandMoreIcon/>
         </IconButton>
       </CardActions>
       <Collapse in={props.itinerary._id === props.selectedItinerary} timeout="auto" unmountOnExit>
+        
         <CardContent>
-          <p>Aquí van los sliders de las activities</p>
-          
+          <div className="activitiesList">
+            <div className="slider">
+              <ul className="ulSlider">
+                <li className="liSlider">
+                  {props.activities.map(activity => {
+                    if ( props.itinerary._id === activity.itineraryId) {
+                      return (<React.Fragment key={activity._id}>
+                          <NavLink className = "activityName" to = { "/activities/" + activity._id }>
+                            <h6>{activity.name}</h6>
+                              <img className="ActivityPicture" src ={activity.picture} alt={activity.name} height="120px"/>
+                          </NavLink>  
+                      </React.Fragment>)
+                      }
+                  })}   
+                </li>
+              </ul>
+            </div>
+          </div>
         </CardContent>
       </Collapse>
     </Card>
     
+    
     )
+    
 }

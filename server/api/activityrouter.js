@@ -19,6 +19,7 @@ activityRouter.get('/all',
 
 activityRouter.post('/add', (req, res) => {
 
+    const cityId = req.body.cityId;
     const itineraryId = req.body.itineraryId;
     const name = req.body.name;
     const place = req.body.place;
@@ -27,6 +28,7 @@ activityRouter.post('/add', (req, res) => {
     const price = req.body.price;
     const description = req.body.description;
     const newActivity = new activityModel({
+        cityId,
         itineraryId,
         name,
         place,
@@ -40,12 +42,11 @@ activityRouter.post('/add', (req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-activityRouter.get('/:itineraryId',
+activityRouter.get('/find/:cityId',
     (req, res) => {
-        console.log("holaaa");
-        let itineraryRequested = req.params.itineraryId;
-        activityModel.find({
-                itineraryId: itineraryRequested
+        let itineraryRequested = req.params.cityId;
+        activityModel.find({ 
+            cityId: itineraryRequested
             })
             .then(activities => {
                 res.send(activities)
@@ -53,12 +54,12 @@ activityRouter.get('/:itineraryId',
             .catch(err => console.log(err));
     });
 
-    activityRouter.get('/find/:itineraryId', (req, res) => {
-        activityModel.findById(req.params.id)
-            .then(activity => {
-                res.send(activity)
-            })
-            .catch(err => console.log(err));
-    });
+    // activityRouter.get('/find/:cityId', (req, res) => {
+    //     activityModel.findById(req.params.id)
+    //         .then(activit => {
+    //             res.send(activity)
+    //         })
+    //         .catch(err => console.log(err));
+    // });
 
 module.exports = activityRouter;
