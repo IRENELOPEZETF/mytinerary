@@ -26,7 +26,12 @@ code {
   display: flex;
   justify-content: right;
   text-align: right;
+  width: 45px;
+  position: right;
   
+}
+button.mr-2 navbar-toggler {
+  float: right;
 }
 .user-menu {
   float: left;
