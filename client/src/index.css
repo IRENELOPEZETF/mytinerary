@@ -213,3 +213,7 @@ img.userPicture {
   75% { margin-left: -200%; }
   100% { margin-left: -300%; }
 } */
+
+.createAccount {
+  padding-top: 60px;;
+}

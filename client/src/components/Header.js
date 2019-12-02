@@ -98,7 +98,7 @@ class Header extends Component {
                 <a id="cities" className="menu-item" href = {"/cities"}>Cities</a>
                 <a id="logIn" className="menu-item" href = {"/loggin"}>Log in</a>
                 <a id="logOut" className="menu-item" href = {"/loggout"}>Log out</a>
-                <a id="register" className="menu-item" href = {"/register"}>Create New Account</a>
+                <a id="register" className="menu-item" href = {"/user"}>Create New Account</a>
                 </Menu>
                 
               </div>

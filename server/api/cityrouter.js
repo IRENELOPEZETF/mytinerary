@@ -24,11 +24,11 @@ cityRouter.post('/add', (req, res) => {
     const newCity = new cityModel({
         name,
         country
-});
+    });
     
-newCity.save()
-        .then(() => res.json('City added!'))
-        .catch(err => res.status(400).json('Error: ' + err));
+    newCity.save()
+            .then(() => res.json('City added!'))
+            .catch(err => res.status(400).json('Error: ' + err));
 });
 
 cityRouter.get('/:name',
@@ -41,7 +41,6 @@ cityRouter.get('/:name',
                 res.send(city)
             })
             .catch(err => console.log(err));
-            console.log("esto debería ser barna");
 });
 
 cityRouter.get('/find/:id', (req, res) => {

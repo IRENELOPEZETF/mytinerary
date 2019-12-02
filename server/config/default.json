@@ -1,0 +1,5 @@
+{
+    "mongoURI": "mongodb+srv://irenelopezlopez:irene82@cluster0-3dpfz.mongodb.net/mytinerary?retryWrites=true&w=majority",
+    "jwtSecret": "mtyn_JwtSecret"
+
+}
