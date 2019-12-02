@@ -3,58 +3,59 @@ import "../App.css";
 import "../index.css";
 import Avatar from 'react-avatar';
 import userDoll from "../img/user.png";
+import hamburguesa from "../img/burger-menu.png";
 import { slide as Menu } from 'react-burger-menu'; 
 // import Users from "../components/Users.js";
 // import Home from "../components/Home.js";
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import { NavLink } from "react-router-dom";
 // import { connect } from 'react-redux';
-import { hamburguesa } from "../img/hamburguesa.png";
 
-// var styles = {
-//   bmBurgerButton: {
-//     position: 'right',
-//     width: '36px',
-//     height: '30px',
-//     left: '36px',
-//     top: '36px'
-//   },
-//   bmBurgerBars: {
-//     background: 'none'
-//   },
-//   bmBurgerBarsHover: {
-//     background: '#a90000'
-//   },
-//   bmCrossButton: {
-//     height: '24px',
-//     width: '24px'
-//   },
-//   bmCross: {
-//     background: '#bdc3c7'
-//   },
-//   bmMenuWrap: {
-//     position: 'fixed',
-//     height: '100%'
-//   },
-//   bmMenu: {
-//     background: '#373a47',
-//     padding: '2.5em 1.5em 0',
-//     fontSize: '1.15em'
-//   },
-//   bmMorphShape: {
-//     fill: '#373a47'
-//   },
-//   bmItemList: {
-//     color: '#b8b7ad',
-//     padding: '0.8em'
-//   },
-//   bmItem: {
-//     display: 'inline-block'
-//   },
-//   bmOverlay: {
-//     background: 'rgba(0, 0, 0, 0.3)'
-//   }
-// }
+
+var styles = {
+  bmBurgerButton: {
+    position: 'right',
+    width: '36px',
+    height: '30px',
+    left: '36px',
+    top: '36px'
+  },
+  // bmBurgerBars: {
+  //   background: 'none'
+  // },
+  // bmBurgerBarsHover: {
+  //   background: '#a90000'
+  // },
+  // bmCrossButton: {
+  //   height: '24px',
+  //   width: '24px'
+  // },
+  // bmCross: {
+  //   background: '#bdc3c7'
+  // },
+  // bmMenuWrap: {
+  //   position: 'fixed',
+  //   height: '50%'
+  // },
+  // bmMenu: {
+  //   background: '#373a47',
+  //   padding: '2.5em 1.5em 0',
+  //   fontSize: '1.15em'
+  // },
+  // bmMorphShape: {
+  //   fill: '#373a47'
+  // },
+  // bmItemList: {
+  //   color: '#b8b7ad',
+  //   padding: '0.8em'
+  // },
+  // bmItem: {
+  //   display: 'inline-block'
+  // },
+  // bmOverlay: {
+  //   background: 'rgba(0, 0, 0.5, 0)'
+  // }
+}
  
 
 
@@ -86,18 +87,19 @@ class Header extends Component {
                 </Navbar>
                 <img />
               </div>
+              <div>
               <div className = "burger-menu">
-                {/* <Navbar>
-                  <a className="burger" src = { burgerMenu } alt = "doll"/>
-                </Navbar> */}
-                <img className="hamburguesa" src={ hamburguesa } alt = "burger" height="100px"/>
-                {/* <Menu burgerButtonClassName={ "bm-burger-button" }/>
-                <Menu>
+                <Navbar className="menuBurger">
+                  <img className="hamburguesa" src={ hamburguesa } alt = "burger" height="45px"/>
+                </Navbar>
+              </div>  
+                <Menu burgerButtonClassName={ "bm-burger-button" }/>
+                <Menu className="menuClass">
                 <a id="cities" className="menu-item" href = {"/cities"}>Cities</a>
-                <a id="signIn" className="menu-item" href = {"/Users"}>Sign in</a>
-                <a id="signOut" className="menu-item" href = {"/Users"}>Sign out</a>
-                <a id="createCount" className="menu-item" href = {"/Users"}>Create an acount</a>
-                </Menu> */}
+                <a id="logIn" className="menu-item" href = {"/loggin"}>Log in</a>
+                <a id="logOut" className="menu-item" href = {"/loggout"}>Log out</a>
+                <a id="register" className="menu-item" href = {"/register"}>Create New Account</a>
+                </Menu>
                 
               </div>
             

@@ -44,7 +44,37 @@ button.mr-2 navbar-toggler {
   top: 0px;
   width: 100%
 }
+.burger-menu {
+  position: right;
+}
+/* .menuBurger {
+  position: right;
+  width: 45px;
+} */
 
+.hamburguesa {
+  float: right;
+  padding-right: 5px;
+  align-content: center;
+}
+
+.menuBurger {
+  float: right;
+}
+
+.menuClass {
+  background-color:rgba(214, 38, 38, 0.6);
+  
+}
+
+a.menu-item {
+  font-size: 30px;
+  color: black;
+  text-decoration: none;
+}
+a.menu-item.active {
+  background-color: brown;
+}
 /* .myHome {
   height: 350px;
 } */
