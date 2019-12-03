@@ -5,10 +5,9 @@ import Avatar from 'react-avatar';
 import userDoll from "../img/user.png";
 import hamburguesa from "../img/burger-menu.png";
 import { slide as Menu } from 'react-burger-menu'; 
-// import Users from "../components/Users.js";
-// import Home from "../components/Home.js";
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
-import { NavLink } from "react-router-dom";
+import RegisterModal from "../components/auth/RegisterModal.js";
+import { Navbar } from 'reactstrap';
+
 // import { connect } from 'react-redux';
 
 
@@ -20,64 +19,12 @@ var styles = {
     left: '36px',
     top: '36px'
   },
-  // bmBurgerBars: {
-  //   background: 'none'
-  // },
-  // bmBurgerBarsHover: {
-  //   background: '#a90000'
-  // },
-  // bmCrossButton: {
-  //   height: '24px',
-  //   width: '24px'
-  // },
-  // bmCross: {
-  //   background: '#bdc3c7'
-  // },
-  // bmMenuWrap: {
-  //   position: 'fixed',
-  //   height: '50%'
-  // },
-  // bmMenu: {
-  //   background: '#373a47',
-  //   padding: '2.5em 1.5em 0',
-  //   fontSize: '1.15em'
-  // },
-  // bmMorphShape: {
-  //   fill: '#373a47'
-  // },
-  // bmItemList: {
-  //   color: '#b8b7ad',
-  //   padding: '0.8em'
-  // },
-  // bmItem: {
-  //   display: 'inline-block'
-  // },
-  // bmOverlay: {
-  //   background: 'rgba(0, 0, 0.5, 0)'
-  // }
-}
  
-
+}
 
 class Header extends Component {
 
-  // constructor(props) {
-  //   super(props);
-
-  //   this.toggleNavbar = this.toggleNavbar.bind(this);
-  //   this.state = {
-  //     collapsed: true
-  //   };
-  // }
-
-  // toggleNavbar() {
-  //   this.setState({
-  //     collapsed: !this.state.collapsed
-  //   });
-  // }
-  // showSettings(event) {
-  //      event.preventDefault();
-  // }
+  
     render() {
         return (
             <div className = "header">
@@ -98,7 +45,10 @@ class Header extends Component {
                 <a id="cities" className="menu-item" href = {"/cities"}>Cities</a>
                 <a id="logIn" className="menu-item" href = {"/loggin"}>Log in</a>
                 <a id="logOut" className="menu-item" href = {"/loggout"}>Log out</a>
-                <a id="register" className="menu-item" href = {"/user"}>Create New Account</a>
+                <a id="register" className="menu-item" href = {"/registerModal"}>
+                  Create an Account
+                  <RegisterModal/>
+                </a>
                 </Menu>
                 
               </div>

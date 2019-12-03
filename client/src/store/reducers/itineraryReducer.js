@@ -1,6 +1,6 @@
 const initialState = {
-    itineraries: [],
-    isloaded: false
+    isloaded: false,
+    itineraries: []
 }
 
 export default function itineraryReducer(state = initialState, action) {

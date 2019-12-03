@@ -1,6 +1,7 @@
 const initialState = {
-    cities: [], 
-    isloaded: false
+    isloaded: false,
+    cities: []
+    
 }
 
 export default function cityReducer(state = initialState, action) {

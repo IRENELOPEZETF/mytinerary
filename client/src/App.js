@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react"; 
+// import store from './index.js';
 import './App.css';
 import Header from "./components/Header.js";
 import Home from "./components/Home.js";
@@ -8,12 +9,16 @@ import Itineraries from "./components/Itineraries.js";
 import Cities from "./components/Cities/Cities.js";
 import Activities from "./components/Activities.js";
 import User from "./components/User.js";
+import { loadUser } from './store/actions/authAction.js';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
  
 // import { Connect } from "react-redux";
 
-function App() {
-  
+class App extends Component {
+  // componentDidMount () {
+  //   store.dispatch(loadUser());
+  // }
+  render(){
   return (
   
       <BrowserRouter>
@@ -33,6 +38,7 @@ function App() {
       </BrowserRouter>
     
   );
+  }
 }
  
 export default App;

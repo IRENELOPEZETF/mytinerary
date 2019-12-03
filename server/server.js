@@ -8,7 +8,7 @@ const cityRouter = require('./api/cityrouter');
 const itineraryRouter = require('./api/itineraryrouter');
 const activityRouter = require('./api/activityrouter');
 const userRouter = require('./api/userrouter.js');
-const auth = require('./api/auth.js');
+const auth = require('./api/authrouter.js/index.js');
 const app = express();
 const port = process.env.PORT || 5000;
 

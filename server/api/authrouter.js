@@ -55,4 +55,10 @@ userRouter.post('/', (req, res) => {
         })
 })
 
+// @route GET api/auth/user
+// userRouter.get('/user', auth, (req, res) => {
+//     User.findById(req.user.id)
+//     .select('-password')
+//     .then(user => res.json(user));
+// })
 module.exports = userRouter;
