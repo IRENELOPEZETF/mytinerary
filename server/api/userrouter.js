@@ -1,6 +1,6 @@
 const express = require('express');
 const userRouter = express.Router();
-const User = require('../models/userModel.js');
+const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
@@ -13,7 +13,7 @@ userRouter.post('/', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-    // const picture = req.body.picture;
+    const picture = req.body.picture;
 
     if(!name || !email || !password) {
         return res.status(400).json({ msg: 'Please, enter all fields' });    
@@ -45,13 +45,13 @@ userRouter.post('/', (req, res) => {
                                     if (err) throw err;
                                     res.json({
                                         token,
+                                        msg: "Your registration has been succesfull",
                                         user: {
                                             id: user.id,
                                             name: user.name,
-                                            email: user.email
-                                            // picture: user.picture
-                                        },
-                                        msg: "Your registration has been succesfull"
+                                            email: user.email,
+                                            picture: user.picture
+                                        }
                                     });
                                 }
                             )
