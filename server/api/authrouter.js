@@ -1,25 +1,26 @@
 const express = require('express');
-const userRouter = express.Router();
-const User = require('../models/userModel');
+const authRouter = express.Router();
+const User = require('../models/userModel.js');
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
-userRouter.get('/', (req, res) => {
-    res.send('this is registration');
-});
+// userRouter.get('/', (req, res) => {
+//     res.send('this is registration');
+// });
 
-userRouter.post('/', (req, res) => {
+// find the user
+authRouter.get('/', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     
-
+// validation, si no hay mail i/o no hay password...
     if (!email || !password) {
         return res.status(400).json({
             msg: 'Please, enter all fields'
         });
     }
-
+    // check if user exsits
     User.findOne({
             email
         })
@@ -41,7 +42,7 @@ userRouter.post('/', (req, res) => {
                             if (err) throw err;
                             res.json({
                                 token,
-                                msg: "Your registration has been succesfull",
+                                msg: "Your are log in",
                                 user: {
                                     id: user.id,
                                     name: user.name,
@@ -56,9 +57,10 @@ userRouter.post('/', (req, res) => {
 })
 
 // @route GET api/auth/user
-// userRouter.get('/user', auth, (req, res) => {
+// authRouter.get('/auth', auth, (req, res) => {
 //     User.findById(req.user.id)
-//     .select('-password')
-//     .then(user => res.json(user));
-// })
-module.exports = userRouter;
+//         .select('-password')
+//         .then(user => res.json(user));
+// });
+
+module.exports = authRouter;

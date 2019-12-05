@@ -43,12 +43,9 @@ class Header extends Component {
                 <Menu burgerButtonClassName={ "bm-burger-button" }/>
                 <Menu className="menuClass">
                 <a id="cities" className="menu-item" href = {"/cities"}>Cities</a>
-                <a id="logIn" className="menu-item" href = {"/loggin"}>Log in</a>
-                <a id="logOut" className="menu-item" href = {"/loggout"}>Log out</a>
-                <a id="register" className="menu-item" href = {"/registerModal"}>
-                  Create an Account
-                  <RegisterModal/>
-                </a>
+                <a id="logIn" className="menu-item" href = {"/login"}>Log in</a>
+                <a id="logOut" className="menu-item" href = {"/logout"}>Log out</a>
+                <a id="register" className="menu-item" href = {"/register"}>Create an account</a>
                 </Menu>
                 
               </div>

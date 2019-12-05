@@ -1,14 +1,14 @@
-const cors = require('cors');
+
 const mongoose = require('mongoose');
 const express = require('express');
-
+const cors = require('cors');
 const config = require('config');
 const db = config.get('mongoURI');
 const cityRouter = require('./api/cityrouter');
 const itineraryRouter = require('./api/itineraryrouter');
 const activityRouter = require('./api/activityrouter');
 const userRouter = require('./api/userrouter.js');
-const auth = require('./api/authrouter.js/index.js');
+const auth = require('./api/authrouter.js');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -25,7 +25,7 @@ mongoose.connect(db, {
 app.use('/cities', cityRouter);
 app.use('/itineraries', itineraryRouter);
 app.use('/activities', activityRouter);
-app.use('/user', userRouter);
-app.use('/auth', auth);
+app.use('/register', userRouter);
+app.use('/login', auth);
 app.listen(port, () => console.log('Server runing on ' + port + ' port'));
 

@@ -1,5 +1,7 @@
+const 
+
 const router = require('express').Router();
-let User = require('../models/users.model');
+let User = require('../models/userModel.js');
 
 router.route('/').get((req, res) => {
     User.find()
@@ -15,7 +17,7 @@ router.route('/add').post((req, res) => {
     });
 
     newUser.save()
-        .then(() => res.json('User added!'))
+        .then(() => res.json({msg: 'User added!'}))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
