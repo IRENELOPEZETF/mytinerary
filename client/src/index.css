@@ -13,7 +13,7 @@ code {
 }
 
 .logo {
-  padding-top: 80px;
+  padding-top: 2px;
   align-content: left;
 }
 
@@ -22,45 +22,53 @@ code {
   margin-bottom: 0.1px;
 }
 
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: right;
   text-align: right;
   width: 45px;
   position: right;
   
-}
+} */
 button.mr-2 navbar-toggler {
   float: right;
+  color: black;
 }
 .user-menu {
   float: left;
   align-content: center;
 }
 .header {
-  height: 50px;
+  height: 70px;
   background-color: rgb(214, 38, 38);
   position: fixed;
   top: 0px;
   width: 100%
 }
-.burger-menu {
-  position: right;
+.mb-5 {
+  /* height: 70px; */
+  background-color: rgb(214, 38, 38);
+  position: fixed;
+  top: 0px;
+  width: 100%
 }
+/* .burger-menu {
+  position: right;
+} */
 /* .menuBurger {
   position: right;
   width: 45px;
 } */
 
-.hamburguesa {
+/* .hamburguesa {
   float: right;
   padding-right: 5px;
   align-content: center;
-}
+} */
 
-.menuBurger {
+/* .menuBurger {
   float: right;
-}
+} */
 
 .menuClass {
   background-color:rgba(214, 38, 38, 0.6);
@@ -73,7 +81,7 @@ a.menu-item {
   text-decoration: none;
 }
 a.menu-item.active {
-  background-color: brown;
+  background-color: black;
 }
 /* .myHome {
   height: 350px;
@@ -100,7 +108,7 @@ a.menu-item.active {
 } 
 
 .appFooter {
-  height: 50px;
+  height: 60px;
   background-color:rgb(214, 38, 38);
   position: fixed;
   bottom: 0px;
@@ -117,7 +125,7 @@ a.menu-item.active {
 }
 
 .h1cityList {
-  padding-top: 40px;
+  padding-top: -5px;
 }
 
 .isLoaded {
@@ -139,7 +147,7 @@ width: 99%;
 
 .ulCity {
   flex-direction: column;
-  height: 98vh;
+  height: 80vh;
   overflow: scroll;
 }
 
@@ -154,25 +162,25 @@ img.userPicture {
 
 .MuiCardMedia-rootmakeStyles-media-2 {
   height: 200px;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
 }
 
 .cityPicture {
-  margin-top: 50px;
+  margin-top: -30px;
   width: 100%;
 }
 
 .cardContent {
-  height: 5px;
-  margin-top: 2px;
+  height: 20px;
+  margin-top: 5px;
 }
 
 .cardHeader {
-  height: 30px;
+  height: 50px;
 }
 
 .cardActions {
-  height: 15px;
+  height: 30px;
 }
 
 .reSorry {
@@ -217,3 +225,8 @@ img.userPicture {
 .createAccount {
   padding-top: 60px;;
 }
+
+
+/* .AppNavbar {
+  background-color: brown;
+} */

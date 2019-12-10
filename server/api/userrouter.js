@@ -1,19 +1,23 @@
 const express = require('express');
 const userRouter = express.Router();
-const User = require('../models/userModel');
+const User = require('../models/userModel.js');
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
-userRouter.get('/', (req, res)=> {
-   res.send('this is registration'); 
+userRouter.get('/all', (req, res)=> {
+   userModel.find()
+       .then(files => {
+           res.send(files)
+       })
+       .catch(err => console.log(err));
 });
 
 userRouter.post('/', (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-    const picture = req.body.picture;
+    // const picture = req.body.picture;
 
     if(!name || !email || !password) {
         return res.status(400).json({ msg: 'Please, enter all fields' });    
@@ -27,7 +31,7 @@ userRouter.post('/', (req, res) => {
                 name,
                 email,
                 password,
-                picture
+                // picture
             });
             
             bcrypt.genSalt(10, (err, salt) => {
@@ -45,13 +49,13 @@ userRouter.post('/', (req, res) => {
                                     if (err) throw err;
                                     res.json({
                                         token,
-                                        msg: "Your registration has been succesfull",
                                         user: {
                                             id: user.id,
                                             name: user.name,
                                             email: user.email,
-                                            picture: user.picture
-                                        }
+                                            // picture: user.picture
+                                        },
+                                        // msg: "Your registration has been succesfull"
                                     });
                                 }
                             )

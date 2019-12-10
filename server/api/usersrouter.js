@@ -9,7 +9,7 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route('/').post((req, res) => {
     const username = req.body.username;
 
     const newUser = new User({

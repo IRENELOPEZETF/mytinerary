@@ -8,7 +8,7 @@ const cityRouter = require('./api/cityrouter');
 const itineraryRouter = require('./api/itineraryrouter');
 const activityRouter = require('./api/activityrouter');
 const userRouter = require('./api/userrouter.js');
-const auth = require('./api/authrouter.js');
+const authRouter = require('./api/authrouter.js');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -25,7 +25,7 @@ mongoose.connect(db, {
 app.use('/cities', cityRouter);
 app.use('/itineraries', itineraryRouter);
 app.use('/activities', activityRouter);
+app.use('/login', authRouter);
 app.use('/register', userRouter);
-app.use('/login', auth);
 app.listen(port, () => console.log('Server runing on ' + port + ' port'));
 

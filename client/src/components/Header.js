@@ -5,22 +5,10 @@ import Avatar from 'react-avatar';
 import userDoll from "../img/user.png";
 import hamburguesa from "../img/burger-menu.png";
 import { slide as Menu } from 'react-burger-menu'; 
-import RegisterModal from "../components/auth/RegisterModal.js";
+
 import { Navbar } from 'reactstrap';
 
 // import { connect } from 'react-redux';
-
-
-var styles = {
-  bmBurgerButton: {
-    position: 'right',
-    width: '36px',
-    height: '30px',
-    left: '36px',
-    top: '36px'
-  },
- 
-}
 
 class Header extends Component {
 
@@ -30,11 +18,11 @@ class Header extends Component {
             <div className = "header">
               <div className= "user-menu">
                 <Navbar>
-                  <Avatar googleId="118096717852922241760" size="45" round={true} src = { userDoll } alt = "doll"/>
+                  <Avatar googleId="118096717852922241760" size="45" round={true} src = { userDoll } alt = "user"/>
                 </Navbar>
-                <img />
+                <img/>
               </div>
-              <div>
+              {/* <div>
               <div className = "burger-menu">
                 <Navbar className="menuBurger">
                   <img className="hamburguesa" src={ hamburguesa } alt = "burger" height="45px"/>
@@ -48,7 +36,7 @@ class Header extends Component {
                 <a id="register" className="menu-item" href = {"/register"}>Create an account</a>
                 </Menu>
                 
-              </div>
+              </div> */}
             
               {/* <div classe = "burger-menu">
                 <Navbar src={burgerMenu} right width="45px">

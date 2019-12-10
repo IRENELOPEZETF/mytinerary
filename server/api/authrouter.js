@@ -4,20 +4,30 @@ const User = require('../models/userModel.js');
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const auth = require('../middlewares/auth.js');
 
-// userRouter.get('/', (req, res) => {
-//     res.send('this is registration');
-// });
+authRouter.get('/all', (req, res) => {
+    userModel.find()
+        .then(files => {
+            res.send(files)
+        })
+        .catch(err => console.log(err));
+});
 
 // find the user
-authRouter.get('/', (req, res) => {
+authRouter.post('/', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     
 // validation, si no hay mail i/o no hay password...
-    if (!email || !password) {
+    if (!email) {
         return res.status(400).json({
-            msg: 'Please, enter all fields'
+            msg: 'Please, enter an e-mail'
+        });
+    }
+    if (!password) {
+        return res.status(400).json({
+            msg: 'Please, enter your password'
         });
     }
     // check if user exsits
@@ -30,7 +40,7 @@ authRouter.get('/', (req, res) => {
             });
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
-                    if(!isMatch) return res.status(400).json({ msg:'invalid credentials'});
+                    if(!isMatch) return res.status(400).json({ msg:'Invalid credentials'});
 
                     jwt.sign({
                             id: user.id
@@ -42,12 +52,12 @@ authRouter.get('/', (req, res) => {
                             if (err) throw err;
                             res.json({
                                 token,
-                                msg: "Your are log in",
+                                // msg: "Your are log in",
                                 user: {
                                     id: user.id,
                                     name: user.name,
                                     email: user.email,
-                                    picture: user.picture
+                                    // picture: user.picture
                                 }
                             });
                         }
@@ -55,12 +65,12 @@ authRouter.get('/', (req, res) => {
                 })
         })
 })
-
+  
 // @route GET api/auth/user
-// authRouter.get('/auth', auth, (req, res) => {
-//     User.findById(req.user.id)
-//         .select('-password')
-//         .then(user => res.json(user));
-// });
+authRouter.get('/login', auth, (req, res) => {
+    userModel.findById(req.user.id)
+        .select('-password')
+        .then(user => res.json(user));
+});
 
 module.exports = authRouter;

@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import "../../App.css";
 import "../../index.css";
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { register } from "../../store/actions/authAction.js";
 import { clearErrors } from "../../store/actions/errorAction.js";
-import { Button, ModalBody, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
-
+import { Button, NavLink, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 
 class RegisterModal extends Component {
     state = {
@@ -14,26 +13,28 @@ class RegisterModal extends Component {
         name: '',
         email: '',
         password: '',
-        // picture: '',
+        picture: '',
         msg: null
     };
 
     static propTypes = {
-        isAuthenticated: propTypes.bool,
-        error: propTypes.object.isRequired,
-        register: propTypes.func.isRequired,
-        clearErrors: propTypes.func.isRequired
+        isAuthenticated: PropTypes.bool,
+        error: PropTypes.object.isRequired,
+        register: PropTypes.func.isRequired,
+        clearErrors: PropTypes.func.isRequired
     };
 
     componentDidUpdate(prevProps) {
         const { error, isAuthenticated } =  this.props;
         if(error !== prevProps.error) {
+          // check the error
             if(error.id === 'REGISTER_FAIL') {
                 this.setState({ msg: error.msg.msg });
             } else {
-                this.setState({ msg: "Register success" })
+                this.setState({ msg: null })
             }
         }
+        // if authenticated
         if(this.state.modal) {
             if(isAuthenticated) {
                 this.toggle();
@@ -42,6 +43,7 @@ class RegisterModal extends Component {
     }
 
     toggle = () => {
+      // clear errors
         this.props.clearErrors();
         this.setState({
             modal: !this.state.modal
@@ -56,73 +58,79 @@ class RegisterModal extends Component {
         e.preventDefault();
 
         const { name, email, password, picture } =  this.state;
-        
+
+        // create a user object
         const newUser = {
             name, 
             email,
             password,
             picture
+            
         };
         this.props.register(newUser);
-            
+       console.log(this.state.name);
     };
 
     render() {
         return (
-            <div className="registrationForm">
-                <h1>I'm the fucking register</h1>
-                <h1>I'm the fucking register</h1>
-                <div>
-        {/* <NavLink onClick={this.toggle} href='#'>
-          Create new account
-        </NavLink>
+          
+          <div className="registrationForm">
+                
+            <NavLink onClick={this.toggle} href='#'>
+            Create new account
+            </NavLink>
 
-        <Modal isOpen={this.state.modal} toggle={this.toggle}> */}
-          {/* <ModalHeader toggle={this.toggle}>Register</ModalHeader> */}
-          <ModalBody>
-            {this.state.msg ? (
-              <Alert className="danger" color='danger'>{this.state.msg}</Alert>
-            ) : null}
-            <Form onSubmit={this.onSubmit}>
-              <FormGroup>
-                <Label for='name'></Label>
-                <Input
-                  type='text'
-                  name='name'
-                  id='name'
-                  placeholder='Name'
-                  className='mb-3'
-                  onChange={this.onChange}
-                />
+            <Modal isOpen={this.state.modal} toggle={this.toggle}>
 
-                <Label for='email'></Label>
-                <Input
-                  type='email'
-                  name='email'
-                  id='email'
-                  placeholder='Email'
-                  className='mb-3'
-                  onChange={this.onChange}
-                />
+              <ModalHeader toggle={this.toggle}>Register</ModalHeader>
 
-                <Label for='password'></Label>
-                <Input
-                  type='password'
-                  name='password'
-                  id='password'
-                  placeholder='Password'
-                  className='mb-3'
-                  onChange={this.onChange}
-                />
-                <Button color='dark' style={{ marginTop: '2rem' }} block>
-                  Register
-                </Button>
-              </FormGroup>
-            </Form>
-          </ModalBody>
+              <ModalBody isOpen={this.state.modal} toggle={this.toggle}>
+                {this.state.msg ? (
+                  <Alert className="danger" color='danger'>{this.state.msg}</Alert>
+                ) : null}
+
+                <Form onSubmit={this.onSubmit}>
+                  <FormGroup>
+
+                    <Label for='name'></Label>
+                      <Input
+                        type='text'
+                        name='name'
+                        id='name'
+                        placeholder='Name'
+                        className='mb-3'
+                        onChange={this.onChange}/>
+
+                    <Label for='email'></Label>
+                      <Input
+                        type='email'
+                        name='email'
+                        id='email'
+                        placeholder='Email'
+                        className='mb-3'
+                        onChange={this.onChange}/>
+
+                    <Label for='password'></Label>
+                      <Input
+                        type='password'
+                        name='password'
+                        id='password'
+                        placeholder='Password'
+                        className='mb-3'
+                        onChange={this.onChange}/>
+
+                    <Button color='dark' style={{ marginTop: '2rem' }} block>
+                    Register
+                    </Button>
+
+                  </FormGroup>
+                </Form>
+            
+              </ModalBody>
+            </Modal>
         
-      </div>
-            </div>
+          </div>
+            
         )
     }
 }
@@ -131,5 +139,6 @@ class RegisterModal extends Component {
         isAuthenticated: state.auth.isAuthenticated,
         error: state.error
     });
-    
+    // if (
+    //   isAuthenticated = state.auth.isAuthenticated ) 
 export default connect(mapStateToProps, { register, clearErrors })(RegisterModal);

@@ -11,7 +11,7 @@ class Footer extends Component {
         return (
             <div className='appFooter'>
                 <footer>
-                    <NavLink className = "home-icon" to = { "/" }><img src = { houseicon } alt = "homeIcon" className = "house" height = "40px"/></NavLink>
+                    <NavLink className = "home-icon" to = { "/" }><img src = { houseicon } alt = "homeIcon" className = "house" height = "50px"/></NavLink>
                 </footer>
             </div>
         );

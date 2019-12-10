@@ -1,11 +1,14 @@
-const USER_LOADED = 'USER_LOADED';
-const USER_LOADING = 'USER_LOADING';
-const AUTH_ERROR = 'AUTH_ERROR';
-const LOGIN_SUCCES = 'LOGIN_SUCCES';
-const LOGIN_FAIL = 'LOGIN_FAIL';
-const LOGOUT_SUCCES = 'LOGOUT_SUCCES';
-const REGISTER_SUCCES = 'REGISTER_SUCCES';
-const REGISTER_FAIL = 'REGISTER_FAIL';
+import {
+    USER_LOADED,
+    USER_LOADING,
+    AUTH_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGOUT_SUCCESS,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
+    AUTH_ERRORS
+} from '../actions/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
@@ -28,17 +31,18 @@ export default function(state = initialState, action) {
                 isLoading: false,
                 user: action.payload
             };
-        case LOGIN_SUCCES:
-        case REGISTER_SUCCES:
+        case LOGIN_SUCCESS:
+        case REGISTER_SUCCESS:
+            localStorage.setItem('token', action.payload.token);
             return {
                 ...state,
                 ...action.payload,
                 isAuthenticated: true,
-                isLoading: false,
+                isLoading: false
             };
-        case AUTH_ERROR:
+        case AUTH_ERRORS:
         case LOGIN_FAIL:
-        case LOGOUT_SUCCES:
+        case LOGOUT_SUCCESS:
         case REGISTER_FAIL:
             localStorage.removeItem('token');
             return {
@@ -47,7 +51,7 @@ export default function(state = initialState, action) {
                 user: null,
                 isAuthenticated: false,
                 isLoading: false
-            }
+            };
         default:
             return state;
     }

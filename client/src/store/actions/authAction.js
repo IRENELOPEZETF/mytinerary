@@ -1,14 +1,15 @@
 import axios from 'axios';
 import { returnErrors } from './errorAction.js';
-
-const USER_LOADED = 'USER_LOADED';
-const USER_LOADING = 'USER_LOADING';
-const AUTH_ERROR = 'AUTH_ERROR';
-const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-const LOGIN_FAIL = 'LOGIN_FAIL';
-const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
-const REGISTER_FAIL = 'REGISTER_FAIL';
+import {
+    USER_LOADED,
+    USER_LOADING,
+    AUTH_ERRORS,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGOUT_SUCCESS,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL   
+} from '../actions/types';
 
 // check token and load user
 export const loadUser = () => (dispatch, getState) => {
@@ -17,11 +18,23 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch({ 
         type: USER_LOADING 
     });
-    
-    axios
-        .get('/user', tokenConfig(getState))
-        .then(res => 
-            dispatch({
+
+    // get token from localStorage
+    const token = getState().auth.token;
+
+    // headers
+    const config = {
+        headers: {
+           'Content-Type': 'application/json'
+        }
+    }
+
+    // if token, add to headers
+    if(token) {
+        config.headers['x-auth-token'] = token;
+    }
+    axios.get('/', tokenConfig(getState))
+        .then(res => dispatch({
             type: USER_LOADED,
             payload: res.data
             })
@@ -29,19 +42,42 @@ export const loadUser = () => (dispatch, getState) => {
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({
-                type: AUTH_ERROR
+                type: AUTH_ERRORS
             });
         });
 };
+
+// Logout
+export const logout = () => {
+    return {
+        type: LOGOUT_SUCCESS
+    };
+};
+
+// Setup config/headers and token
+export const tokenConfig = getState => {
+    const token = getState().auth.token;
+    const config = {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    };
+    if (token) {
+        config.headers['x-auth-token'] = token;
+    }
+
+    return config;
+};
+
 // Register
 export const register = ({ name, email, password }) => dispatch => {
-    
+    // headers
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     }
-
+    // request body
     const body = JSON.stringify({ name, email, password });
 
     axios
@@ -57,8 +93,8 @@ export const register = ({ name, email, password }) => dispatch => {
                 returnErrors(err.response.data, err.response.status, "REGISTER_FAIL"));
             dispatch({
                 type: REGISTER_FAIL
-            })
-        })
+            });
+        });
 }
 // Login
 export const login = ({ email, password }) => dispatch => {
@@ -66,7 +102,7 @@ export const login = ({ email, password }) => dispatch => {
         headers: {
             'Content-Type': 'application/json'
         }
-    }
+    };
 
     const body = JSON.stringify({ email, password });
     
@@ -86,25 +122,4 @@ export const login = ({ email, password }) => dispatch => {
                 type: LOGIN_FAIL
             });
         });
-};
-
-// Logout
-export const logout = () => {
-    return {
-        type: LOGOUT_SUCCESS
-    };
-};
-
-export const tokenConfig = getState => {
-    const token = getState().auth.token;
-    const config = {
-        headers: {
-            'Content-type': 'application/json'
-        }
-    };
-    if (token) {
-        config.headers['x-auth-token'] = token;
-    }
-
-    return config;
 };
