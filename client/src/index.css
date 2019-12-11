@@ -262,6 +262,10 @@ img.userPicture {
   width: 100%;
 }
 
+.activityBlock {
+  display: inline-flex;
+}
+
 /* @keyframes change {
   0% { margin-left: 0; }
   20% { margin-left: 0; }

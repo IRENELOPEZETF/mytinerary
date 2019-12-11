@@ -13,7 +13,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ratingIcon from '../img/ratingicon.png';
-import { NavLink } from "react-router-dom";
+
 // import Slick from 'slick-carousel';
 import SlickSlider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -57,14 +57,14 @@ export default function Toggle (props) {
          
         };
         
-    var settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      flexDirection: 'raw'
-    };
+    // var settings = {
+    //   dots: true,
+    //   infinite: true,
+    //   speed: 500,
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   flexDirection: 'raw'
+    // };
     return (
         
         <Card className={classes.card}>
@@ -107,7 +107,7 @@ export default function Toggle (props) {
                   {props.activities.map(activity => {
                     if ( props.itinerary._id === activity.itineraryId) {
                       return (
-                        <div className="slider" ><SlickSlider {...settings} key={activity._id}>
+                        <SlickSlider key={activity._id}>
                           <ul className = "activityBlock">
                             <li className="liActivity">
                               <h6>{activity.name}</h6>
@@ -115,7 +115,7 @@ export default function Toggle (props) {
                             </li>
                           </ul>  
                       </SlickSlider>
-                      </div>)
+                      )
                       }
                   })}   
                
