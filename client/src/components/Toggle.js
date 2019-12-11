@@ -14,6 +14,10 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ratingIcon from '../img/ratingicon.png';
 import { NavLink } from "react-router-dom";
+// import Slick from 'slick-carousel';
+import SlickSlider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 const useStyles = makeStyles(theme => ({
@@ -52,7 +56,15 @@ export default function Toggle (props) {
           }
          
         };
-    
+        
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      flexDirection: 'raw'
+    };
     return (
         
         <Card className={classes.card}>
@@ -92,23 +104,23 @@ export default function Toggle (props) {
         
         <CardContent>
           <div className="activitiesList">
-            <div className="slider">
-              <ul className="ulSlider">
-                <li className="liSlider">
                   {props.activities.map(activity => {
                     if ( props.itinerary._id === activity.itineraryId) {
-                      return (<React.Fragment key={activity._id}>
-                          <NavLink className = "activityName" to = { "/activities/" + activity._id }>
-                            <h6>{activity.name}</h6>
-                              <img className="ActivityPicture" src ={activity.picture} alt={activity.name} height="120px"/>
-                          </NavLink>  
-                      </React.Fragment>)
+                      return (
+                        <div className="slider" ><SlickSlider {...settings} key={activity._id}>
+                          <ul className = "activityBlock">
+                            <li className="liActivity">
+                              <h6>{activity.name}</h6>
+                              <img className="activityPicture" src ={activity.picture} alt={activity.name} height="120px"/>
+                            </li>
+                          </ul>  
+                      </SlickSlider>
+                      </div>)
                       }
                   })}   
-                </li>
-              </ul>
+               
             </div>
-          </div>
+         
         </CardContent>
       </Collapse>
     </Card>

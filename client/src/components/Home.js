@@ -16,7 +16,7 @@ class Home extends Component {
             <div className='myHome'>
 
                 <div className='myLogo'>
-                <img src = { tineraryLog } alt = "MyTineraryLogo" className = "logo" height = "140px"/>
+                <img src = { tineraryLog } alt = "MyTineraryLogo" className = "logo" height = "120px"/>
                 </div>
 
                 <div className='myTrip'>

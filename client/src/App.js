@@ -27,7 +27,7 @@ class App extends Component {
   
       <BrowserRouter>
         < div className = "App" >
-          {/* <Header/> */}
+         
           <AppNavbar/>
           <Switch>
             <Route exact path = "/" component = { Home }/>

@@ -19,7 +19,11 @@
   color: white;
   position: fixed;
 }
-
+.headerNavbar {
+  position: fixed;
+  width: 100%;
+  
+}
 .App-link {
   color: red;
 }
@@ -35,4 +39,9 @@
 
 .danger {
   color: red;
+}
+
+.button {
+  background-color: rgb(214, 38, 38);
+  border-color: rgb(214, 38, 38);
 }

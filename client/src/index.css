@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 50;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -12,14 +12,19 @@ code {
     monospace;
 }
 
+
+.navBar {
+  color: black;
+}
 .logo {
-  padding-top: 2px;
+  margin-top: 100px;
+  margin-bottom: 10px;
   align-content: left;
 }
 
 .circled-right {
-  margin-top: 0.1px;
-  margin-bottom: 0.1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 /* .navbar {
@@ -34,17 +39,17 @@ button.mr-2 navbar-toggler {
   float: right;
   color: black;
 }
-.user-menu {
+/* .user-menu {
   float: left;
   align-content: center;
-}
-.header {
+} */
+/* .header {
   height: 70px;
   background-color: rgb(214, 38, 38);
   position: fixed;
   top: 0px;
   width: 100%
-}
+} */
 .mb-5 {
   /* height: 70px; */
   background-color: rgb(214, 38, 38);
@@ -59,8 +64,8 @@ button.mr-2 navbar-toggler {
   position: right;
   width: 45px;
 } */
-
-/* .hamburguesa {
+/* 
+.hamburguesa {
   float: right;
   padding-right: 5px;
   align-content: center;
@@ -70,10 +75,10 @@ button.mr-2 navbar-toggler {
   float: right;
 } */
 
-.menuClass {
+/* .menuClass {
   background-color:rgba(214, 38, 38, 0.6);
   
-}
+} */
 
 a.menu-item {
   font-size: 30px;
@@ -89,26 +94,43 @@ a.menu-item.active {
 
 .cityImg {
   display: block;
+
+  margin-top: 20px;
 }
 
 .leftImg {
   display: inline-block;
   margin-left: 10px;
+  margin-top: 10px;
+}
+
+.cityPhoto1 {
+  margin-bottom: 50px;
+}
+.cityPhoto3 {
+  margin-bottom: 50px;
+}
+.cityPhoto4 {
+  margin-top: 50px;
+}
+.cityPhoto1 {
+  margin-top: 50px;
 }
 
 .rightImg {
   display: inline-block;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .cityPhoto {
-  border-color: rgb(214, 38, 38);
-  border: 5px;
+  /* border-color: rgb(214, 38, 38);
+  border: 5px; */
   margin-left: 2px;  
 } 
 
 .appFooter {
-  height: 60px;
+  height: 50px;
   background-color:rgb(214, 38, 38);
   position: fixed;
   bottom: 0px;
@@ -120,10 +142,12 @@ a.menu-item.active {
   border-block-color: rgb(214, 38, 38);
 }
 
-.homIcon {
+.homeIcon {
   position: absolute position;
 }
-
+.cityIcon {
+  position: right;
+}
 .h1cityList {
   padding-top: -5px;
 }
@@ -132,8 +156,13 @@ a.menu-item.active {
   padding-top: 40px;
 }
 
+.h1cityList{
+  padding-top: 80px;
+}
+
+
 .liCity {
-background-color:rgba(240, 238, 238, 0.986);
+background-color:rgba(214, 38, 38, 0.386);
 border-color: rgb(214, 38, 38);
 border: 3px;
 border-radius: 4px;
@@ -143,11 +172,13 @@ font-size: 20px;
 font-weight: bold;
 display: block;
 width: 99%;
+
 }
 
 .ulCity {
+  padding-top: 20px;
   flex-direction: column;
-  height: 80vh;
+  height: 98vh;
   overflow: scroll;
 }
 
@@ -162,25 +193,44 @@ img.userPicture {
 
 .MuiCardMedia-rootmakeStyles-media-2 {
   height: 200px;
-  /* margin-bottom: 100px; */
+  margin-bottom: 100px;
 }
 
 .cityPicture {
-  margin-top: -30px;
-  width: 100%;
+  padding-top: 50px;
+  width: 90%;
+  height: 90%;
+  position: top;
 }
 
 .cardContent {
-  height: 20px;
-  margin-top: 5px;
+  height: 5px;
+  margin-top: 20px;
 }
-
+.liActivity {
+  background-color: rgba(214, 38, 38, 0.386);
+  border-color: rgb(214, 38, 38);
+  border: 3px;
+  border-radius: 4px;
+  padding: 30px 30px;
+  margin: 2px;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  width: 200px;
+}
+.activityBlock {
+  display: inline;
+  /* height: 200px; */
+  
+}
 .cardHeader {
-  height: 50px;
+  margin-top: 15px;
+  height: 35px;
 }
 
 .cardActions {
-  height: 30px;
+  height: 35px;
 }
 
 .reSorry {
@@ -196,9 +246,10 @@ img.userPicture {
 .ulSlider {
   padding: 0px;
   display: inline-block;
-  /* width: 400%;
+  width: 400%;
   animation: change 20s infinite;
-  animation-direction: alternate; */
+  animation-direction: alternate;
+  height: 300px;
 }
 
 .liSlider {
@@ -226,7 +277,15 @@ img.userPicture {
   padding-top: 60px;;
 }
 
+.navbar-toggler-icon {
+  color: black;
+}
 
 /* .AppNavbar {
   background-color: brown;
 } */
+
+.button {
+  color: rgb(214, 38, 38)
+
+}

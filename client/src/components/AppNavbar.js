@@ -8,7 +8,7 @@ import Logout from './auth/Logout.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Avatar from 'react-avatar';
 import userDoll from "../img/user.png";
-
+import hamburguesa from "../img/hamburguesa.png";
 
 class AppNavbar extends Component {
   state = {
@@ -52,13 +52,13 @@ class AppNavbar extends Component {
     );
 
     return (
-      <div>
+      <div className="headerNavbar">
         <Navbar dark expand='sm' className='mb-5'>
           <Container>
             <NavbarBrand href='#'>
               <Avatar googleId="118096717852922241760" size="45" round={true} src = { userDoll } alt = "user"/>
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
+            <NavbarToggler onClick={this.toggle} className="navBar" src = { hamburguesa }/>
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className='ml-auto' navbar>              
                 {isAuthenticated ? authLinks : guestLinks}

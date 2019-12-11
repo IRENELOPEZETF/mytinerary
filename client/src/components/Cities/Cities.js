@@ -54,8 +54,10 @@ export class Cities extends Component {
                         
         return (
             <div className="cityList">
-                <h1 className="h1cityList">Cities</h1>
+                <div className="citiesFilter">
+                    <h1 className="h1cityList">Cities</h1>
                 <CityFilter onChange={this.filterCity}/>
+                </div>
                 <div className="ulCity">
                     {filteredCities.map(city => (
                         <React.Fragment key={city._id}> 

@@ -22,10 +22,11 @@ export class CityFilter extends Component {
     render() {
         return (
             <div>
-                <label htmlFor = "filter"> Filter by city  </label>     
+                <label htmlFor = "filter"></label>     
                 <input type="text" id="filter"
                     value={this.state.cityFilter}
-                    onChange={this.handleChange}/>
+                    onChange={this.handleChange}
+                    placeholder='Filter by city'/>
             </div>
         )
     } 
